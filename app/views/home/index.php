@@ -1,0 +1,1 @@
+<h1> Ich bin public/home mit dem Titel "<?= $data['title'] ?>"</h1>
