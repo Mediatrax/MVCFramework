@@ -1,6 +1,7 @@
 <?php
 
 /*
+ *
  * Routing:
  * https://example.de/controller/function/var1/var2/var3/...
  *
@@ -10,7 +11,7 @@ class App {
 
     public static $log_data = [];
 
-    // log
+    // ONLY SET THIS TRUE WHEN YOU TESTING STUFF, its not safe against xss!
     public static $log = true;
 
     //standard controller when nothing else is declared
@@ -54,6 +55,7 @@ class App {
         //outputs $log
         if (App::$log == true) {
             foreach (App::$log_data as $item) {
+                $item = strip_tags(htmlspecialchars($item));
                 echo "<script>console.log('%c(PHP) ' + '%c$item', 'color: blue', 'color: black')</script>";
             }
         }
